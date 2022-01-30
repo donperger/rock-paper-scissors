@@ -3,20 +3,25 @@ const options = [{name: 'Rock', nemesis: 'Paper'},
     {name: 'Scissors', nemesis: 'Rock'}
 ];
 
-playRound('Scissors', computerPlay(options));
-
+ console.log(playRound('SciSsORs', computerPlay(options)));
+ 
 function computerPlay(options) {
     return options[Math.floor(Math.random()*options.length)];
 }
 
 function playRound (playerSelection, computerSelection) {
-    const playerSelectionObj = options.filter(obj => playerSelection === obj.name)[0];
+    const arrangedPlayerSelection = capitalize(playerSelection);
+    const playerSelectionObj = options.filter(obj => arrangedPlayerSelection === obj.name)[0];
     
     if (computerSelection.name === playerSelectionObj.nemesis) {
-        console.log(`You lose! ${computerSelection.name} beats ${playerSelectionObj.name}`)
+        return (`You lose! ${computerSelection.name} beats ${playerSelectionObj.name}`)
     } else if (computerSelection.name === playerSelectionObj.name) {        
-        console.log(`It's a draw!${computerSelection.name} and ${playerSelectionObj.name} are equal`)
+        return (`It's a draw!${computerSelection.name} and ${playerSelectionObj.name} are equal`)
     } else {        
-        console.log(`You win! ${playerSelectionObj.name} beats ${computerSelection.name}`)
+        return (`You win! ${playerSelectionObj.name} beats ${computerSelection.name}`)
         }
 }
+
+function capitalize(strng) {
+    return strng[0].toUpperCase() + strng.slice(1).toLowerCase()
+  }
