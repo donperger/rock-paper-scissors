@@ -1,0 +1,45 @@
+:root {
+    --dark-color: #465459;
+    --light-color: #F2EFDC;
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    background-color: var(--dark-color);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    color: var(--light-color);
+}
+
+.button-container {
+    display: flex;
+    gap: 25px;
+}
+
+img {
+    height: 150px;
+    width: 150px;
+}
+
+.button {
+    height: 200px;
+    width: 200px;
+    border-radius: 15px;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    font-size: large;
+    font-weight: 600;    
+}
+
+.button:hover {
+    cursor: pointer;
+}

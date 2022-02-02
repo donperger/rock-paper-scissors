@@ -34,7 +34,7 @@ function game() {
     computerScore = 0;
     draw = 0;
 
-    const playerInput = window.prompt('Choose Rock, Paper or Scissor and get ready for the battle');
+    // const playerInput = window.prompt('Choose Rock, Paper or Scissor and get ready for the battle');
     const computerChoice = computerPlay(options);
 
     console.log(playRound(playerInput, computerChoice))
