@@ -34,12 +34,10 @@ function game() {
     computerScore = 0;
     draw = 0;
 
-    for (let round = 1; round <= 5; round++) {
-        const playerInput = window.prompt('Choose Rock, Paper or Scissor and get ready for the battle');
-        const computerChoice = computerPlay(options);
+    const playerInput = window.prompt('Choose Rock, Paper or Scissor and get ready for the battle');
+    const computerChoice = computerPlay(options);
 
-        console.log(playRound(playerInput, computerChoice))
-    }
+    console.log(playRound(playerInput, computerChoice))
 
     if (playerScore < computerScore) {
         console.log(`You've lost the game, You scored ${playerScore}, the computer scored ${computerScore} (draw: ${draw}), see you next time!`);
