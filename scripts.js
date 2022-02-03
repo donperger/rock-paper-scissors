@@ -7,7 +7,18 @@ let playerScore = 0;
 let computerScore = 0;
 let draw = 0; 
 
-game();
+const rockBtn = document.querySelector('#rock');
+rockBtn.addEventListener('click', pushBtn);
+
+const paperBtn = document.querySelector('#paper');
+paperBtn.addEventListener('click', pushBtn);
+
+const scissorsBtn = document.querySelector('#scissors');
+scissorsBtn.addEventListener('click', pushBtn);
+
+function pushBtn() {
+    console.log("You've pushed a button")
+}
 
 function computerPlay(options) {
     return options[Math.floor(Math.random()*options.length)];
