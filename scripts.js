@@ -3,8 +3,8 @@ const options = [{name: 'Rock', nemesis: 'Paper'},
     {name: 'Scissors', nemesis: 'Rock'}
 ];
 
-let playerScore = 4;
-let computerScore = 4; 
+let playerScore = 0;
+let computerScore = 0; 
 
 const playerScoreDisplay = document.querySelector('#player-score');
 const computerScoreDisplay = document.querySelector('#computer-score');
