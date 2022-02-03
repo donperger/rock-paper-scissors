@@ -10,7 +10,7 @@ const playerScoreDisplay = document.querySelector('#player-score');
 const computerScoreDisplay = document.querySelector('#computer-score');
 const resultsDisplay = document.querySelector('#results');
 
-refreshScores();
+displayScores();
 
 const rockBtn = document.querySelector('#rock');
 rockBtn.addEventListener('click', () => {
@@ -47,7 +47,7 @@ function countdown(playerChoice) {
             
             const computerChoice = computerPlay(options);
             resultsDisplay.textContent = playRound(playerChoice, computerChoice);
-            refreshScores();
+            displayScores();
         } else {
             resultsDisplay.textContent = `${options[counter].name}`;
             counter += 1;
@@ -70,7 +70,7 @@ function playRound (playerSelection, computerSelection) {
         }
 }
 
-function refreshScores() {
+function displayScores() {
     playerScoreDisplay.textContent = `Your score: ${playerScore}`;
     computerScoreDisplay.textContent = `Computer's score: ${computerScore}`
 }
