@@ -8,17 +8,31 @@ let computerScore = 0;
 let draw = 0; 
 
 const rockBtn = document.querySelector('#rock');
-rockBtn.addEventListener('click', pushBtn);
+rockBtn.addEventListener('click', () => {
+    const btnId = rockBtn.id;
+    const computerChoice = computerPlay(options);
+
+    console.log(playRound(btnId, computerChoice))
+    
+});
 
 const paperBtn = document.querySelector('#paper');
-paperBtn.addEventListener('click', pushBtn);
+paperBtn.addEventListener('click', () => {
+    const btnId = paperBtn.id;
+    const computerChoice = computerPlay(options);
+
+    console.log(playRound(btnId, computerChoice))
+    
+});
 
 const scissorsBtn = document.querySelector('#scissors');
-scissorsBtn.addEventListener('click', pushBtn);
+scissorsBtn.addEventListener('click', () => {
+    const btnId = scissorsBtn.id;
+    const computerChoice = computerPlay(options);
 
-function pushBtn() {
-    console.log("You've pushed a button")
-}
+    console.log(playRound(btnId, computerChoice))
+    
+});
 
 function computerPlay(options) {
     return options[Math.floor(Math.random()*options.length)];
