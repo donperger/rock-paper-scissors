@@ -9,6 +9,7 @@ let computerScore = 4;
 const playerScoreDisplay = document.querySelector('#player-score');
 const computerScoreDisplay = document.querySelector('#computer-score');
 const resultsDisplay = document.querySelector('#results');
+const container = document.querySelector('.container');
 
 displayScores();
 
@@ -77,11 +78,23 @@ function displayScores() {
 }
 
 function compareScores() {
-    if ( playerScore = 5) {
+    if ( playerScore === 5) {
         resultsDisplay.textContent = "Congratulations! You've won";
-    } else if (computerScore = 5) {
+        container.classList.add('win');
+        disableButtons();
+    } else if (computerScore === 5) {
         resultsDisplay.textContent = "Sorry! You've lost";
+        container.classList.add('lose');
+        disableButtons();
     }
+}
+
+function disableButtons() {
+    const buttons = document.querySelectorAll(".button");
+
+    buttons.forEach((button) => {
+        button.setAttribute("disabled","disabled")
+    })
 }
 
 function capitalize(strng) {
