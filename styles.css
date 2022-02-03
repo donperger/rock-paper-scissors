@@ -74,3 +74,11 @@ img {
     justify-content: center;
     margin-top: 50px;
 }
+
+.lose {
+    background-color: red;
+}
+
+.win {
+    background-color: seagreen;
+}

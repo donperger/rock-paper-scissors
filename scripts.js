@@ -3,8 +3,8 @@ const options = [{name: 'Rock', nemesis: 'Paper'},
     {name: 'Scissors', nemesis: 'Rock'}
 ];
 
-let playerScore = 0;
-let computerScore = 0; 
+let playerScore = 4;
+let computerScore = 4; 
 
 const playerScoreDisplay = document.querySelector('#player-score');
 const computerScoreDisplay = document.querySelector('#computer-score');
@@ -73,6 +73,15 @@ function playRound (playerSelection, computerSelection) {
 function displayScores() {
     playerScoreDisplay.textContent = `Your score: ${playerScore}`;
     computerScoreDisplay.textContent = `Computer's score: ${computerScore}`
+    compareScores();
+}
+
+function compareScores() {
+    if ( playerScore = 5) {
+        resultsDisplay.textContent = "Congratulations! You've won";
+    } else if (computerScore = 5) {
+        resultsDisplay.textContent = "Sorry! You've lost";
+    }
 }
 
 function capitalize(strng) {
