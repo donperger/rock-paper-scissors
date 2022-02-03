@@ -4,38 +4,55 @@ const options = [{name: 'Rock', nemesis: 'Paper'},
 ];
 
 let playerScore = 0;
-let computerScore = 0;
-let draw = 0; 
+let computerScore = 0; 
+
+const playerScoreDisplay = document.querySelector('#player-score');
+const computerScoreDisplay = document.querySelector('#computer-score');
+const resultsDisplay = document.querySelector('#results');
+
+refreshScores();
 
 const rockBtn = document.querySelector('#rock');
 rockBtn.addEventListener('click', () => {
     const btnId = rockBtn.id;
-    const computerChoice = computerPlay(options);
 
-    console.log(playRound(btnId, computerChoice))
-    
+    countdown(btnId);
 });
 
 const paperBtn = document.querySelector('#paper');
-paperBtn.addEventListener('click', () => {
+paperBtn.addEventListener('click', (e) => {
     const btnId = paperBtn.id;
-    const computerChoice = computerPlay(options);
 
-    console.log(playRound(btnId, computerChoice))
-    
+    countdown(btnId);
 });
 
 const scissorsBtn = document.querySelector('#scissors');
 scissorsBtn.addEventListener('click', () => {
     const btnId = scissorsBtn.id;
-    const computerChoice = computerPlay(options);
-
-    console.log(playRound(btnId, computerChoice))
     
+    countdown(btnId);
 });
 
 function computerPlay(options) {
     return options[Math.floor(Math.random()*options.length)];
+}
+
+function countdown(playerChoice) {
+    resultsDisplay.textContent = `${options[0].name}`;
+    let counter = 1;
+
+    const timer = setInterval(() => {
+        if (counter >= 3) {
+            clearInterval(timer);
+            
+            const computerChoice = computerPlay(options);
+            resultsDisplay.textContent = playRound(playerChoice, computerChoice);
+            refreshScores();
+        } else {
+            resultsDisplay.textContent = `${options[counter].name}`;
+            counter += 1;
+        }
+    }, 1000); 
 }
 
 function playRound (playerSelection, computerSelection) {
@@ -46,12 +63,16 @@ function playRound (playerSelection, computerSelection) {
         computerScore++;
         return (`You lose! ${computerSelection.name} beats ${playerSelectionObj.name}`)
     } else if (computerSelection.name === playerSelectionObj.name) {        
-        draw++;
         return (`It's a draw!${computerSelection.name} and ${playerSelectionObj.name} are equal`)
     } else { 
         playerScore++;       
         return (`You win! ${playerSelectionObj.name} beats ${computerSelection.name}`)
         }
+}
+
+function refreshScores() {
+    playerScoreDisplay.textContent = `Your score: ${playerScore}`;
+    computerScoreDisplay.textContent = `Computer's score: ${computerScore}`
 }
 
 function capitalize(strng) {
