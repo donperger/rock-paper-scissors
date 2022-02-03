@@ -34,6 +34,18 @@ scissorsBtn.addEventListener('click', () => {
     countdown(btnId);
 });
 
+const resetBtn = document.querySelector('#reset-button');
+resetBtn.addEventListener('click', () => {
+    playerScore = 0;
+    computerScore = 0;
+
+    displayScores();
+    compareScores();
+    enableButtons();
+
+    resultsDisplay.textContent = '';
+});
+
 function computerPlay(options) {
     return options[Math.floor(Math.random()*options.length)];
 }
@@ -86,6 +98,8 @@ function compareScores() {
         resultsDisplay.textContent = "Sorry! You've lost";
         container.classList.add('lose');
         disableButtons();
+    } else {
+        container.classList.remove('win', 'lose')
     }
 }
 
@@ -94,6 +108,14 @@ function disableButtons() {
 
     buttons.forEach((button) => {
         button.setAttribute("disabled","disabled")
+    })
+}
+
+function enableButtons() {
+    const buttons = document.querySelectorAll(".button");
+
+    buttons.forEach((button) => {
+        button.removeAttribute("disabled")
     })
 }
 
